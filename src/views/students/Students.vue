@@ -40,7 +40,7 @@ export default {
     },
     caption: {
       type: String,
-      default: 'Students'
+      default: 'Siswa'
     },
     clickableRows: Boolean,
     hover: Boolean,

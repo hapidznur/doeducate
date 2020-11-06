@@ -3,7 +3,7 @@
       <CCol md="12">
         <CCard>
           <CCardHeader>
-            <strong>Basic Form</strong> Elements
+            <strong>Data Siswa</strong>
           </CCardHeader>
           <CCardBody>
             <CForm>
