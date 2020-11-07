@@ -19,6 +19,7 @@
         :clickableRows="true"
         @row-clicked="onRowClicked" 
         pagination
+        table-filter
       >
       </CDataTable>
     </CCardBody>

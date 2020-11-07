@@ -13,19 +13,9 @@ export default {
       const status = error.response ? error.response.status : null
 
       if (status === 401) {
-        console.log(status)
-          // will loop if refreshToken returns 401
-          return this.refreshToken();
+        this.$store.dispatch('auth/refresh');
       }
-
-      return Promise.reject(error);
     });
-  },
-  methods: {
-    refreshToken() {
-      const refreshingCall = AuthService.refreshToken()
-      return refreshingCall;
-}
   }
 }
 </script>

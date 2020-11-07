@@ -25,6 +25,18 @@ export const auth = {
       AuthService.logout();
       commit('logout');
     },
+    refresh({ commit }){
+      return AuthService.refreshToken().then(
+        user => {
+          commit('refreshSuccess', user);
+          return Promise.resolve(user);
+        },
+        error => {
+          commit('refreshFailure');
+          return Promise.reject(error);
+        }
+      )
+    },
     register({ commit }, user) {
       return AuthService.register(user).then(
         response => {
@@ -56,6 +68,14 @@ export const auth = {
     },
     registerFailure(state) {
       state.status.loggedIn = false;
+    },
+    refreshSuccess(state, user) {
+      state.status.loggedIn = true;
+      state.user = user;
+    },
+    refreshFailure(state) {
+      state.status.loggedIn = false;
+      state.user = null;
     }
   }
 };

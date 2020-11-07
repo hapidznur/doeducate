@@ -34,21 +34,21 @@ class AuthService {
     });
   }
 
-  refreshToken(){
+  refreshToken() {
     let user = JSON.parse(localStorage.getItem('user'));
     var rs = axios.post(API_URL + "api/auth/refresh/", {
       refresh: user.refresh
     })
      .then(response => {
         if (response.data.access) {
-           localStorage.setItem('user', JSON.stringify(response.data));
-          console.log(response);
+          user.access = response.data.access;
+          localStorage.setItem("user", JSON.stringify(user));
+          return JSON.stringify(user);
         }
-        return response.data;
       })
        .catch(err => {
-        console.log(localStorage.getItem("user"));
         console.log(err)
+        return err;
       });
   }
 }

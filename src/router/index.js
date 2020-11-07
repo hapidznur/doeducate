@@ -80,6 +80,11 @@ function configRoutes () {
       component: Login
     },
     {
+      path: '/logout',
+      name: 'Logout',
+      component: Login
+    },
+    {
       path: '/',
       name: 'Students',
       component: TheContainer,
